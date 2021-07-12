@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async-await</title>
+</head>
+<body>
+
+<script>
+    //async将普通的函数包装成promise,返回一个promise
+    async function fun1(){
+        return 1
+    }
+
+    console.log(fun1()) 
+    //成功的promise通过await直接取到结果
+    async function fun2(){
+        let result = await fun1()
+        console.log(result)
+        return result
+    }
+    fun2()
+
+    let p = Promise.reject(2)
+    async function fun3(){
+        try{
+            let result = await p
+            console.log(result)
+        }catch(error){
+            console.log(error)
+        }
+    }
+    fun3()
+</script>
+</body>
+</html>

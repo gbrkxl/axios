@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery的jsonp</title>
+</head>
+<body>
+<button id="jsonp">jquery_jsonp</button>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    $('#jsonp').click(function(){
+        $.ajax({
+            method:'get',
+            url:'http://localhost:3000/jsonp_get',
+            dataType:'jsonp',
+            success:function(data){
+                console.log(data)
+            },
+            error:function(err){
+                console.log(err)
+            }
+        })
+
+
+        // 简写方式需要自己传callback
+        // $.getJSON('http://localhost:3000/jsonp_get?callback=?',{},function(data){
+        //     console.log(data)
+        // })
+    })
+</script>
+</body>
+</html>

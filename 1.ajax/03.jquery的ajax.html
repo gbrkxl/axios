@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery的ajax</title>
+</head>
+<body>
+<button id="ajax">jquery_ajax</button>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    $('#ajax').click(function(){
+    // ajax两个参数
+        /*  $.ajax('http://localhost:3000/ajax_get',{
+            method:'get', //请求方式
+            data:{name:'peiqi'}, //请求数据
+            success:function(data){ //成功的回调
+                console.log(data) 
+            },
+            error:function(err){ //失败的回调
+                console.log(err)
+            }
+        }) */
+        /*  $.ajax('http://localhost:3000/ajax_post',{
+            method:'post', //请求方式
+            data:{name:'peiqi'}, //请求数据
+            success:function(data){ //成功的回调
+                console.log(data) 
+            },
+            error:function(err){ //失败的回调
+                console.log(err)
+            }
+        }) */
+    //ajax一个参数
+        /* $.ajax({
+            url:'http://localhost:3000/ajax_get',
+            method:'get', //请求方式
+            data:{name:'peiqi'}, //请求数据
+            success:function(data){ //成功的回调
+                console.log(data) 
+            },
+            error:function(err){ //失败的回调
+                console.log(err)
+            }
+        }) */
+    //简写 第三个参数中(后端返回的数据，状态，xhr)
+        // $.get('http://localhost:3000/ajax_get',{name:'peiqi'},(data,status,xhr)=>{})
+        $.get('http://localhost:3000/ajax_get',{name:'peiqi'},(data)=>{console.log(data)})
+        // $.post('http://localhost:3000/ajax_post',{name:'peiqi'},(data)=>{
+        //     console.log(data)
+        // })
+    })
+</script>
+</body>
+</html>

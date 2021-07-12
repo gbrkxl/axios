@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03.自定义promise</title>
+</head>
+<body>
+<script src="./03.自定义promise.js"></script>
+<script>
+    const p = new Promise((resolve,reject)=>{
+        // setTimeout(()=>{
+        //     // resolve(1)
+        //     // reject(2)
+            
+        // })
+        // throw 3
+        resolve(4)
+    })
+    p.then(
+        value => console.log('onResolved1()' + value),
+        reason => console.log('onRejected1()' + reason)
+    ).then(
+        value => {
+            console.log('onResolved2()' + value)
+            // throw 5
+        },
+        reason => {
+            console.log('onRejected2()' + reason)
+            throw 5
+        }
+    ).catch(
+        reason => console.log('onRejected3()' + reason)
+    ).then(
+        value => console.log('onResolved4()' + value),
+        reason => console.log('onRejected4()' + reason)
+    )
+
+    Promise.resolve(1).then(value => console.log(value))
+    Promise.resolve(Promise.resolve(2)).then(value => console.log(value))
+    Promise.reject(3).catch(reason => console.log(reason))
+</script>
+</body>
+</html>
